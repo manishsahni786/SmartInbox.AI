@@ -1,0 +1,123 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Remove the scrollbar */
+  background-color: black; /* Set background color to black */
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+  justify-content: flex-start; /* Align items to the top */
+  height: 100vh;
+  padding: 20px; /* Padding to ensure buttons are not touching the edges */
+}
+
+.heading {
+  font-size: 48px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 40px; /* Reduced space between heading and buttons */
+  opacity: 0;
+  animation: fadeInScale 2s forwards; /* Fade-in and scale animation */
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.8); /* Start slightly smaller */
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1); /* End at normal size */
+  }
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  width: 80%; /* Adjusted width for better responsiveness */
+  max-width: 800px; /* Limit maximum width of buttons */
+  margin-top: 40px; /* Increased margin from the top */
+}
+
+.button {
+  padding: 35px 75px; /* Adjusted padding for slightly smaller buttons */
+  font-size: 32px; /* Font size of the buttons */
+  font-weight: bold;
+  color: white;
+  border: 2px solid white;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+  backdrop-filter: blur(10px); /* Blur background behind the button */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Add a shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition effects */
+  cursor: pointer;
+}
+
+.button:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Increase shadow on hover */
+}
+
+/* Specific styling for Google button */
+.gmail-button {
+  margin-right: 10px; /* Separate from Outlook button */
+}
+
+/* Specific styling for Outlook button */
+.outlook-button {
+  margin-left: 10px; /* Separate from Google button */
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .buttons-container {
+    flex-direction: column; /* Stack buttons vertically on smaller screens */
+    align-items: center; /* Center buttons horizontally */
+    gap: 20px; /* Space between stacked buttons */
+  }
+
+  .button {
+    padding: 30px 60px; /* Adjust button padding for smaller screens */
+    font-size: 24px; /* Reduce font size on smaller screens */
+  }
+
+  .heading {
+    font-size: 36px; /* Reduce heading font size on smaller screens */
+    margin-bottom: 20px; /* Reduce margin between heading and buttons */
+  }
+}
+
+.gmail-app, .outlook-app {
+  color: white;
+  text-align: center;
+  padding: 20px;
+  position: relative; /* Ensure relative positioning for absolute positioning of child elements */
+}
+
+.gmail-app .inbox, .outlook-app .inbox {
+  background-color: #333;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.logout-button {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #ff5722; /* Orange color, you can change it */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: absolute;
+  top: 10px; /* Adjust top position as needed */
+  right: 10px; /* Adjust right position as needed */
+}
+
+.logout-button:hover {
+  background-color: #ff7043; /* Darker shade of orange on hover */
+}
